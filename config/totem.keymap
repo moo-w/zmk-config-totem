@@ -193,7 +193,7 @@
         &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &trans  &trans  &trans  &trans  &trans
         &trans         &trans         &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans
 &trans  &trans         &bt BT_PRV     &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
-                                      &trans        &trans        &trans        &trans  &trans  &trans
+                                      &to 0         &trans        &trans        &to 1   &to 2   &to 0
             >;
         };
 
