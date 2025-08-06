@@ -11,7 +11,6 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
@@ -123,20 +122,14 @@
         };
     };
 
-    macros {
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+    behaviors {
+        hold_tap_k_k: hold_tap_k_k {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_K_K";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
         };
     };
 
@@ -162,10 +155,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-              &kp Q             &kp W  &kp E             &kp R      &kp T        &kp Y    &kp U                                   &kp I      &kp O    &kp P
-              &kp A             &kp S  &kp D             &kp F      &kp G        &kp H    &kp J                                   &kp K      &kp L    &kp SEMICOLON
-&kp CAPSLOCK  &mt LEFT_SHIFT Z  &kp X  &kp C             &kp V      &kp B        &kp N    &kp M                                   &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH  &kp SQT
-                                       &sk LEFT_CONTROL  &lt 1 TAB  &kp SPACE    &kp RET  &mt LS(LA(LC(LG(LEFT_GUI)))) BACKSPACE  &sl 1
+                                        &kp Q             &kp W  &kp E             &kp R         &kp T        &kp Y      &kp U                                   &kp I      &kp O    &kp P
+                                        &kp A             &kp S  &kp D             &kp F         &kp G        &kp H      &kp J                                   &kp K      &kp L    &kp SEMICOLON
+&hold_tap_k_k LS(LA(LC(LG(LGUI)))) ESC  &mt LEFT_SHIFT Z  &kp X  &kp C             &kp V         &kp B        &kp N      &kp M                                   &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH  &kp SQT
+                                                                 &sk LEFT_CONTROL  &mt LGUI TAB  &kp SPACE    &lt 3 RET  &mt LS(LA(LC(LG(LEFT_GUI)))) BACKSPACE  &sl 1
             >;
         };
 
@@ -188,10 +181,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &kp N1     &kp N2          &kp N3    &kp N4     &kp N5      &kp N6    &kp N7     &kp N8     &kp N9     &kp N0
-           &kp MINUS  &kp LEFT_BRACE  &kp LBKT  &kp LPAR   &kp LT      &kp GT    &kp RPAR   &kp RBKT   &kp RBRC   &kp EQUAL
-&kp GRAVE  &kp UNDER  &kp PG_UP       &kp CAPS  &kp PG_DN  &kp LPAR    &kp RPAR  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp PLUS   &kp BSLH
-                                      &to 0     &trans     &trans      &trans    &to 3      &to 2
+           &kp N1     &kp N2          &kp N3    &kp N4    &kp N5    &kp N6  &kp N7    &kp N8    &kp N9    &kp N0
+           &kp MINUS  &kp LEFT_BRACE  &kp LBKT  &kp LPAR  &kp LT    &kp GT  &kp RPAR  &kp RBKT  &kp RBRC  &kp EQUAL
+&kp GRAVE  &kp UNDER  &none           &none     &none     &none     &none   &none     &none     &none     &kp PLUS   &kp BSLH
+                                      &to 0     &none     &none     &none   &none     &to 2
             >;
         };
 
@@ -217,7 +210,7 @@
         &kp F1  &kp F2   &kp F3   &kp F4   &trans    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3        &trans
         &kp F5  &kp F6   &kp F7   &kp F8   &trans    &trans     &kp KP_N4  &kp KP_N5  &kp KP_NUMBER_6  &trans
 &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans     &kp KP_N7  &kp KP_N8  &kp KP_N9        &trans  &trans
-                         &to 0    &trans   &trans    &trans     &to 1      &to 3
+                         &to 0    &trans   &trans    &trans     &to 1      &to 0
             >;
         };
 
@@ -240,10 +233,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &trans  &trans  &trans  &trans  &trans
-        &trans         &trans         &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans
-&trans  &trans         &bt BT_PRV     &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
-                                      &to 0         &trans        &trans        &to 1   &to 2   &to 0
+       &none  &none  &none  &none              &none               &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
+       &none  &none  &none  &none              &none               &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT     &none
+&none  &none  &none  &none  &none              &none               &none          &none          &none         &none         &none       &none
+                     &to 0  &sk LS(LC(LCTRL))  &sk LG(LS(LGUI))    &none          &none          &none
             >;
         };
 
