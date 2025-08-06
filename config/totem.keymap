@@ -121,6 +121,11 @@
             bindings = <&kp BSLH>;
             key-positions = <8 9>;
         };
+
+        caps {
+            bindings = <&kp CAPS>;
+            key-positions = <10 19>;
+        };
     };
 
     behaviors {
