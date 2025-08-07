@@ -163,7 +163,7 @@
             bindings = <
                                         &kp Q             &kp W  &kp E             &kp R         &kp T        &kp Y      &kp U                                   &kp I      &kp O    &kp P
                                         &kp A             &kp S  &kp D             &kp F         &kp G        &kp H      &kp J                                   &kp K      &kp L    &kp SEMICOLON
-&hold_tap_k_k LS(LA(LC(LG(LGUI)))) ESC  &mt LEFT_SHIFT Z  &kp X  &kp C             &kp V         &kp B        &kp N      &kp M                                   &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH  &kp SQT
+&hold_tap_k_k LS(LA(LC(LG(LGUI)))) ESC  &mt LEFT_SHIFT Z  &kp X  &kp C             &kp V         &kp B        &kp N      &kp M                                   &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH  &mt RSHIFT SQT
                                                                  &sk LEFT_CONTROL  &mt LGUI TAB  &kp SPACE    &lt 3 RET  &mt LS(LA(LC(LG(LEFT_GUI)))) BACKSPACE  &sl 1
             >;
         };
@@ -213,10 +213,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp F1  &kp F2   &kp F3   &kp F4   &trans    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3        &trans
-        &kp F5  &kp F6   &kp F7   &kp F8   &trans    &trans     &kp KP_N4  &kp KP_N5  &kp KP_NUMBER_6  &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans     &kp KP_N7  &kp KP_N8  &kp KP_N9        &trans  &trans
-                         &to 0    &trans   &trans    &trans     &to 1      &to 0
+        &kp F1  &kp F2   &kp F3   &kp F4   &kp KP_MULTIPLY    &kp KP_N0     &kp KP_N1  &kp KP_N2  &kp KP_N3        &kp KP_PLUS
+        &kp F5  &kp F6   &kp F7   &kp F8   &kp KP_DIVIDE      &kp KP_DOT    &kp KP_N4  &kp KP_N5  &kp KP_NUMBER_6  &kp KP_MINUS
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp DEL            &kp KP_ENTER  &kp KP_N7  &kp KP_N8  &kp KP_N9        &kp KP_EQUAL  &kp BSPC
+                         &to 0    &trans   &trans             &trans        &to 1      &to 0
             >;
         };
 
@@ -241,7 +241,7 @@
             bindings = <
        &none  &none  &none  &none              &none               &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
        &none  &none  &none  &none              &none               &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT     &none
-&none  &none  &none  &none  &none              &none               &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR    &bt BT_CLR_ALL  &none
+&none  &none  &none  &none  &none              &none               &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR    &bt BT_CLR_ALL  &kp DEL
                      &to 0  &sk LS(LC(LCTRL))  &sk LG(LS(LGUI))    &none          &none          &none
             >;
         };
