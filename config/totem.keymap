@@ -263,7 +263,7 @@
 
             bindings = <
        &arr_fn  &func  &tpl_lit  &none              &none               &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
-       &none    &none  &none     &none              &none               &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT     &none
+       &kp ESC  &none  &none     &none              &none               &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT     &kp SQT
 &none  &none    &none  &none     &none              &none               &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR    &bt BT_CLR_ALL  &kp DEL
                        &to 0     &sk LS(LC(LCTRL))  &sk LG(LS(LGUI))    &none          &kp BACKSPACE  &none
             >;
